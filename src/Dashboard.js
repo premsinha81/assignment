@@ -38,12 +38,9 @@ const Dashboard = () => {
 
   const compliantCount = mergedData.filter(item => item.compliant).length;
   const nonCompliantCount = mergedData.length - compliantCount;
-  
-
-  const filteredData = mergedData.filter(item => 
-                (item.id || '').toLowerCase().includes(searchTerm.toLowerCase())
-
-  );
+  const filteredData = mergedData.filter(
+      item => (item.id).toLowerCase().includes(searchTerm.toLowerCase()) || (item.substance).toLowerCase().includes(searchTerm.toLowerCase())
+    );
   return (
     
     <div className='container p-8'>
@@ -76,7 +73,7 @@ const Dashboard = () => {
             </thead>
             <tbody>
               {filteredData.map(item => (
-                <tr key={`${item.id}-${item.partNumber}`} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                <tr key={`${item.id}`} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
                   <td scope='row' className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white'>{item.id}</td>
                   <td  scope='row' className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white'>{item.substance}</td>
                   <td  scope='row' className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white'>{item.mass}</td>

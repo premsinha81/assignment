@@ -23,7 +23,7 @@ const ComplianceChart = ({ compliant, nonCompliant }) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top',
+        position: 'bottom',
       },
       title: {
         display: true,
